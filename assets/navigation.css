@@ -1,0 +1,43 @@
+/* A single native Home button, reachable even when the input sidebar is closed. */
+.st-key-suite_home {
+    position: fixed;
+    top: 0.62rem;
+    left: clamp(1.1rem, 2.1vw, 2rem);
+    width: max-content;
+    z-index: 999992; /* Above Streamlit's header and sidebar; below its modal. */
+}
+
+[data-testid="stApp"]:has([data-testid="stSidebar"][aria-expanded="false"]) .st-key-suite_home {
+    left: 4.1rem;
+}
+
+.st-key-suite_home button {
+    border: 1px solid #276499;
+    border-radius: 6px;
+    color: #184b7a;
+    background: white;
+    padding-inline: 1rem;
+}
+
+.st-key-suite_home button p {
+    font-size: 1rem;
+    font-weight: 650;
+}
+
+.st-key-suite_home button:hover,
+.st-key-suite_home button:focus-visible {
+    background: #eef6fd;
+    color: #133e66;
+}
+
+[data-testid="stMainBlockContainer"]:has(.st-key-suite_home) {
+    padding-top: 4.4rem;
+}
+
+[data-testid="stApp"]:has(.st-key-suite_home) [data-testid="stHeader"] {
+    border-bottom: 1px solid #d2dfe9;
+}
+
+[data-testid="stApp"]:has(.st-key-suite_home) [data-testid="stSidebarContent"] {
+    background-image: linear-gradient(to bottom, white 0 59px, #d2dfe9 59px 60px, transparent 60px);
+}

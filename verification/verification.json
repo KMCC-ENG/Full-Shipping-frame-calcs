@@ -1,0 +1,875 @@
+{
+  "date": "2026-11-06",
+  "units": "in-lbf-psi",
+  "python": "3.12.14",
+  "packages": {
+    "streamlit": "1.67.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pandas": "2.2.3",
+    "plotly": "6.9.0",
+    "shapely": "2.2.0",
+    "osqp": "1.1.3"
+  },
+  "cases": [
+    {
+      "name": "two_layer",
+      "seconds": 17.80387806699946,
+      "mesh_72": {
+        "checks": {
+          "total_downward": 1051.1907197865482,
+          "coil_load_per_frame": 1000.0,
+          "reaction_sum": 1051.1907131389523,
+          "vertical_residual": -6.647595910180826e-06,
+          "moment_residual": -0.0001594838577148039,
+          "free_residual": 5.445654949198797e-08,
+          "stabilizer_max_force": 5.433256321679758e-08,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 6.938893903907228e-18,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -3.1896489929295058e-06,
+              "moment_residual": -7.654141495549993e-05
+            },
+            {
+              "beam": "B2",
+              "force_residual": -3.2961370415307556e-06,
+              "moment_residual": -7.905899713023246e-05
+            }
+          ],
+          "dofs": 368,
+          "elements": 180,
+          "iterations": 20000,
+          "mesh_divisions": 72,
+          "free_force_residual": 5.445654949198797e-08,
+          "free_moment_residual": 4.920668608687784e-09
+        },
+        "solver": [
+          {
+            "iteration": 20000,
+            "residual": 5.445654949198797e-08,
+            "active": 9,
+            "energy": -21.135444122423475,
+            "status": "Verified working-set solution",
+            "primal_residual": 5.504435203126934e-08,
+            "dual_residual": 4.588672160031426e-06,
+            "polished": 1
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 25780.033826564784,
+            "peak_moment_lbf_in": 3731.1438197470893,
+            "peak_movement_in": 0.05433256321679758
+          },
+          "B2": {
+            "peak_stress_psi": 15710.817245140657,
+            "peak_moment_lbf_in": 2567.5006099367233,
+            "peak_movement_in": 0.05427749477597365
+          }
+        },
+        "lifting_reactions_lbf": [
+          525.5953565681774,
+          525.5953565707749
+        ],
+        "maximum_rod_tension_lbf": 351.07096875400947
+      },
+      "mesh_144": {
+        "checks": {
+          "total_downward": 1051.19100086822,
+          "coil_load_per_frame": 1000.0,
+          "reaction_sum": 1051.1909893300588,
+          "vertical_residual": -1.1538161288626725e-05,
+          "moment_residual": -0.00027708907873602584,
+          "free_residual": 5.540930002323474e-08,
+          "stabilizer_max_force": 5.433192883585734e-08,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 1.3877787807814457e-17,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -5.608176106619567e-06,
+              "moment_residual": -0.00013470656472236442
+            },
+            {
+              "beam": "B2",
+              "force_residual": -5.768177206988412e-06,
+              "moment_residual": -0.00013849911675833937
+            }
+          ],
+          "dofs": 636,
+          "elements": 314,
+          "iterations": 20000,
+          "mesh_divisions": 144,
+          "free_force_residual": 5.540930002323474e-08,
+          "free_moment_residual": 5.38877891007733e-09
+        },
+        "solver": [
+          {
+            "iteration": 20000,
+            "residual": 5.540930002323474e-08,
+            "active": 9,
+            "energy": -21.13519064062565,
+            "status": "Verified working-set solution",
+            "primal_residual": 0.00014375491318594988,
+            "dual_residual": 0.00031297373859640645,
+            "polished": 1
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 25780.20052452311,
+            "peak_moment_lbf_in": 3731.1679459395205,
+            "peak_movement_in": 0.054332056712632165
+          },
+          "B2": {
+            "peak_stress_psi": 15710.633332777203,
+            "peak_moment_lbf_in": 2567.4784351003123,
+            "peak_movement_in": 0.054276859881245164
+          }
+        },
+        "lifting_reactions_lbf": [
+          525.5954946688784,
+          525.5954946611804
+        ],
+        "maximum_rod_tension_lbf": 351.06511801724275
+      },
+      "refinement": [
+        {
+          "beam": "B1",
+          "quantity": "peak_stress",
+          "coarse": 25780.033826564784,
+          "refined": 25780.20052452311,
+          "change_percent": 0.0006466123417684494
+        },
+        {
+          "beam": "B1",
+          "quantity": "peak_deflection",
+          "coarse": 0.05433256321679758,
+          "refined": 0.054332056712632165,
+          "change_percent": -0.0009322381593136476
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_stress",
+          "coarse": 15710.817245140657,
+          "refined": 15710.633332777203,
+          "change_percent": -0.0011706234851195508
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_deflection",
+          "coarse": 0.05427749477597365,
+          "refined": 0.054276859881245164,
+          "change_percent": -0.0011697337131776192
+        },
+        {
+          "beam": "T1",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        },
+        {
+          "beam": "T2",
+          "quantity": "rod_tension",
+          "coarse": 351.0709687532858,
+          "refined": 351.06511801724275,
+          "change_percent": -0.0016665671816351228
+        },
+        {
+          "beam": "T3",
+          "quantity": "rod_tension",
+          "coarse": 94.95598469031084,
+          "refined": 94.95687062912098,
+          "change_percent": 0.0009329907401888043
+        },
+        {
+          "beam": "T4",
+          "quantity": "rod_tension",
+          "coarse": 351.07096875400947,
+          "refined": 351.06511801272774,
+          "change_percent": -0.0016665686738838422
+        },
+        {
+          "beam": "T5",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        }
+      ]
+    },
+    {
+      "name": "four_layer_illustrative",
+      "seconds": 42.62585538100029,
+      "mesh_72": {
+        "checks": {
+          "total_downward": 2113.730658524802,
+          "coil_load_per_frame": 1982.4,
+          "reaction_sum": 2113.730621822365,
+          "vertical_residual": -3.670243722808664e-05,
+          "moment_residual": -0.0008092675707302988,
+          "free_residual": 1.4026166172964594e-07,
+          "stabilizer_max_force": 1.3679980833095208e-07,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 2.7755575615628914e-17,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -8.174728872489823e-06,
+              "moment_residual": -0.00019750572550947254
+            },
+            {
+              "beam": "B2",
+              "force_residual": -9.430010379674059e-06,
+              "moment_residual": -0.0002060533115582075
+            },
+            {
+              "beam": "B3",
+              "force_residual": -9.398373244096092e-06,
+              "moment_residual": -0.0002050392063210893
+            },
+            {
+              "beam": "B4",
+              "force_residual": -8.953171690251338e-06,
+              "moment_residual": -0.00018377441108441417
+            }
+          ],
+          "dofs": 834,
+          "elements": 409,
+          "iterations": 20000,
+          "mesh_divisions": 72,
+          "free_force_residual": 1.4026166172964594e-07,
+          "free_moment_residual": 1.3459488978212475e-08
+        },
+        "solver": [
+          {
+            "iteration": 20000,
+            "residual": 1.4026166172964594e-07,
+            "active": 25,
+            "energy": -98.1732772183927,
+            "status": "Verified working-set solution",
+            "primal_residual": 0.00028075044802476634,
+            "dual_residual": 0.0005256211275059356,
+            "polished": 1
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 121063.02534233658,
+            "peak_moment_lbf_in": 11552.080517137083,
+            "peak_movement_in": 0.12227384584625815
+          },
+          "B2": {
+            "peak_stress_psi": 3763.460309896391,
+            "peak_moment_lbf_in": 16612.149024152037,
+            "peak_movement_in": 0.1367998083309521
+          },
+          "B3": {
+            "peak_stress_psi": 7976.677547501945,
+            "peak_moment_lbf_in": 1800.2108547297446,
+            "peak_movement_in": 0.13675506862428483
+          },
+          "B4": {
+            "peak_stress_psi": 2826.085520709808,
+            "peak_moment_lbf_in": 787.4376957798397,
+            "peak_movement_in": 0.136732624771405
+          }
+        },
+        "lifting_reactions_lbf": [
+          1057.8953227653387,
+          1055.835299057026
+        ],
+        "maximum_rod_tension_lbf": 1992.615131642359
+      },
+      "mesh_144": {
+        "checks": {
+          "total_downward": 2113.7313394085663,
+          "coil_load_per_frame": 1982.4,
+          "reaction_sum": 2113.7312803599248,
+          "vertical_residual": -5.904864156036638e-05,
+          "moment_residual": -0.0013023641004110686,
+          "free_residual": 2.1323057808331214e-07,
+          "stabilizer_max_force": 1.368002622936166e-07,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 2.7755575615628914e-17,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -1.3295377854660728e-05,
+              "moment_residual": -0.00032226465089024714
+            },
+            {
+              "beam": "B2",
+              "force_residual": -1.5135106380625984e-05,
+              "moment_residual": -0.00033041723418136826
+            },
+            {
+              "beam": "B3",
+              "force_residual": -1.5366707366126775e-05,
+              "moment_residual": -0.00033485263429611223
+            },
+            {
+              "beam": "B4",
+              "force_residual": -1.4505299940736904e-05,
+              "moment_residual": -0.0002979347579525893
+            }
+          ],
+          "dofs": 1348,
+          "elements": 666,
+          "iterations": 20000,
+          "mesh_divisions": 144,
+          "free_force_residual": 2.1323057808331214e-07,
+          "free_moment_residual": 4.6949200738916064e-08
+        },
+        "solver": [
+          {
+            "iteration": 20000,
+            "residual": 2.1323057808331214e-07,
+            "active": 28,
+            "energy": -98.17289268544768,
+            "status": "Verified working-set solution",
+            "primal_residual": 0.002456036919118998,
+            "dual_residual": 0.010408259460357104,
+            "polished": 4
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 121063.02011726273,
+            "peak_moment_lbf_in": 11552.08001854989,
+            "peak_movement_in": 0.12227359909920592
+          },
+          "B2": {
+            "peak_stress_psi": 3763.500537545746,
+            "peak_moment_lbf_in": 16612.326591510515,
+            "peak_movement_in": 0.1368002622936166
+          },
+          "B3": {
+            "peak_stress_psi": 7975.565612488287,
+            "peak_moment_lbf_in": 1799.959908459268,
+            "peak_movement_in": 0.13675552039350541
+          },
+          "B4": {
+            "peak_stress_psi": 2826.543551216929,
+            "peak_moment_lbf_in": 787.5701174102929,
+            "peak_movement_in": 0.1367330832176013
+          }
+        },
+        "lifting_reactions_lbf": [
+          1057.8956240888208,
+          1055.835656271104
+        ],
+        "maximum_rod_tension_lbf": 1992.617189059969
+      },
+      "refinement": [
+        {
+          "beam": "B1",
+          "quantity": "peak_stress",
+          "coarse": 121063.02534233658,
+          "refined": 121063.02011726273,
+          "change_percent": -4.315994964193322e-06
+        },
+        {
+          "beam": "B1",
+          "quantity": "peak_deflection",
+          "coarse": 0.12227384584625815,
+          "refined": 0.12227359909920592,
+          "change_percent": -0.00020179912430215907
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_stress",
+          "coarse": 3763.460309896391,
+          "refined": 3763.500537545746,
+          "change_percent": 0.0010688891619197935
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_deflection",
+          "coarse": 0.1367998083309521,
+          "refined": 0.1368002622936166,
+          "change_percent": 0.0003318434167477553
+        },
+        {
+          "beam": "B3",
+          "quantity": "peak_stress",
+          "coarse": 7976.677547501945,
+          "refined": 7975.565612488287,
+          "change_percent": -0.013941769997060732
+        },
+        {
+          "beam": "B3",
+          "quantity": "peak_deflection",
+          "coarse": 0.13675506862428483,
+          "refined": 0.13675552039350541,
+          "change_percent": 0.00033034806879356725
+        },
+        {
+          "beam": "B4",
+          "quantity": "peak_stress",
+          "coarse": 2826.085520709808,
+          "refined": 2826.543551216929,
+          "change_percent": 0.01620461524194948
+        },
+        {
+          "beam": "B4",
+          "quantity": "peak_deflection",
+          "coarse": 0.136732624771405,
+          "refined": 0.1367330832176013,
+          "change_percent": 0.0003352854960355659
+        },
+        {
+          "beam": "T1",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        },
+        {
+          "beam": "T2",
+          "quantity": "rod_tension",
+          "coarse": 1992.615131642359,
+          "refined": 1992.617189059969,
+          "change_percent": 0.00010325202558584833
+        },
+        {
+          "beam": "T3",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        },
+        {
+          "beam": "T4",
+          "quantity": "rod_tension",
+          "coarse": 24.052308955846186,
+          "refined": 24.04517095323208,
+          "change_percent": -0.02968580522047076
+        },
+        {
+          "beam": "T5",
+          "quantity": "rod_tension",
+          "coarse": 136.9718903359372,
+          "refined": 137.04051210363238,
+          "change_percent": 0.05007407418566729
+        },
+        {
+          "beam": "T6",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        }
+      ]
+    },
+    {
+      "name": "blocks",
+      "seconds": 18.752585121001175,
+      "mesh_72": {
+        "checks": {
+          "total_downward": 1053.0166863322495,
+          "coil_load_per_frame": 1000.0,
+          "reaction_sum": 1053.0166793068122,
+          "vertical_residual": -7.025437298580073e-06,
+          "moment_residual": -0.00016753020099713467,
+          "free_residual": 5.9500422366909334e-08,
+          "stabilizer_max_force": 5.950044993078274e-08,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 6.938893903907228e-18,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -3.298188975264793e-06,
+              "moment_residual": -7.865037775900419e-05
+            },
+            {
+              "beam": "B2",
+              "force_residual": -3.4909458648257896e-06,
+              "moment_residual": -8.335836059814028e-05
+            }
+          ],
+          "dofs": 341,
+          "elements": 166,
+          "iterations": 17250,
+          "mesh_divisions": 72,
+          "free_force_residual": 5.9500422366909334e-08,
+          "free_moment_residual": 5.829401125007072e-09
+        },
+        "solver": [
+          {
+            "iteration": 17250,
+            "residual": 5.9500422366909334e-08,
+            "active": 10,
+            "energy": -24.722326162506196,
+            "status": "Verified working-set solution",
+            "primal_residual": 1.342884137223166e-13,
+            "dual_residual": 2.095784071738779e-09,
+            "polished": 1
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 36258.37551647891,
+            "peak_moment_lbf_in": 3459.848060153161,
+            "peak_movement_in": 0.05950523265423451
+          },
+          "B2": {
+            "peak_stress_psi": 6173.1159283578645,
+            "peak_moment_lbf_in": 5626.537955534512,
+            "peak_movement_in": 0.057234848117147796
+          }
+        },
+        "lifting_reactions_lbf": [
+          535.3302796290733,
+          517.6863996777389
+        ],
+        "maximum_rod_tension_lbf": 999.6454733062144
+      },
+      "mesh_144": {
+        "checks": {
+          "total_downward": 1053.0166865333122,
+          "coil_load_per_frame": 1000.0,
+          "reaction_sum": 1053.0166744407124,
+          "vertical_residual": -1.2092599718016572e-05,
+          "moment_residual": -0.00028791409931727685,
+          "free_residual": 5.991451296205597e-08,
+          "stabilizer_max_force": 5.9500435988727894e-08,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 1.3877787807814457e-17,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -5.7889090427920564e-06,
+              "moment_residual": -0.00013782548785457038
+            },
+            {
+              "beam": "B2",
+              "force_residual": -6.067388717667654e-06,
+              "moment_residual": -0.00014456714666266635
+            }
+          ],
+          "dofs": 589,
+          "elements": 290,
+          "iterations": 20000,
+          "mesh_divisions": 144,
+          "free_force_residual": 5.991451296205597e-08,
+          "free_moment_residual": 6.1700120574780665e-09
+        },
+        "solver": [
+          {
+            "iteration": 20000,
+            "residual": 5.991451296205597e-08,
+            "active": 10,
+            "energy": -24.722314478112533,
+            "status": "Verified working-set solution",
+            "primal_residual": 0.00012471817015825143,
+            "dual_residual": 0.0031203894745723223,
+            "polished": 1
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 36258.35660137957,
+            "peak_moment_lbf_in": 3459.846255235847,
+            "peak_movement_in": 0.05950521872208617
+          },
+          "B2": {
+            "peak_stress_psi": 6173.115153509438,
+            "peak_moment_lbf_in": 5626.537249292456,
+            "peak_movement_in": 0.05723483613430593
+          }
+        },
+        "lifting_reactions_lbf": [
+          535.3302771694443,
+          517.6863972712681
+        ],
+        "maximum_rod_tension_lbf": 999.6454360053427
+      },
+      "refinement": [
+        {
+          "beam": "B1",
+          "quantity": "peak_stress",
+          "coarse": 36258.37551647891,
+          "refined": 36258.35660137957,
+          "change_percent": -5.216755835671476e-05
+        },
+        {
+          "beam": "B1",
+          "quantity": "peak_deflection",
+          "coarse": 0.05950523265423451,
+          "refined": 0.05950521872208617,
+          "change_percent": -2.341332179583867e-05
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_stress",
+          "coarse": 6173.1159283578645,
+          "refined": 6173.115153509438,
+          "change_percent": -1.255198400651443e-05
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_deflection",
+          "coarse": 0.057234848117147796,
+          "refined": 0.05723483613430593,
+          "change_percent": -2.0936273559831408e-05
+        },
+        {
+          "beam": "T1",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        },
+        {
+          "beam": "T2",
+          "quantity": "rod_tension",
+          "coarse": 999.6454733062144,
+          "refined": 999.6454360053427,
+          "change_percent": -3.7314101904895332e-06
+        },
+        {
+          "beam": "T3",
+          "quantity": "rod_tension",
+          "coarse": 299.02666491715746,
+          "refined": 299.0265587915478,
+          "change_percent": -3.549036248707062e-05
+        },
+        {
+          "beam": "T4",
+          "quantity": "rod_tension",
+          "coarse": 683.575558943868,
+          "refined": 683.5756353569844,
+          "change_percent": 1.1178443532933705e-05
+        },
+        {
+          "beam": "T5",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        }
+      ]
+    },
+    {
+      "name": "partial_length_welded",
+      "seconds": 22.143438742998114,
+      "mesh_72": {
+        "checks": {
+          "total_downward": 1090.9124914848867,
+          "coil_load_per_frame": 1000.0,
+          "reaction_sum": 1090.9124905717847,
+          "vertical_residual": -9.131019851338351e-07,
+          "moment_residual": -2.4650242266943678e-05,
+          "free_residual": 8.01912916625902e-09,
+          "stabilizer_max_force": 7.554525591495609e-09,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 1.734723475976807e-18,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -4.462385874148822e-07,
+              "moment_residual": -1.2046305755575304e-05
+            },
+            {
+              "beam": "B2",
+              "force_residual": -4.43824543339133e-07,
+              "moment_residual": -1.1981884313172486e-05
+            }
+          ],
+          "dofs": 356,
+          "elements": 174,
+          "iterations": 7525,
+          "mesh_divisions": 72,
+          "free_force_residual": 8.01912916625902e-09,
+          "free_moment_residual": 5.284320134246734e-10
+        },
+        "solver": [
+          {
+            "iteration": 7525,
+            "residual": 8.01912916625902e-09,
+            "active": 11,
+            "energy": -3.1118043446115418,
+            "status": "Verified working-set solution",
+            "primal_residual": 1.0758972906459237e-18,
+            "dual_residual": 7.741650576497495e-13,
+            "polished": 1
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 2431.483588501176,
+            "peak_moment_lbf_in": 7556.32861901817,
+            "peak_movement_in": 0.007554525591495611
+          },
+          "B2": {
+            "peak_stress_psi": 1803.967325505689,
+            "peak_moment_lbf_in": 337.4446099009561,
+            "peak_movement_in": 0.007541467184277934
+          }
+        },
+        "lifting_reactions_lbf": [
+          545.4562452858235,
+          545.4562452859612
+        ],
+        "maximum_rod_tension_lbf": 52.4534916462089
+      },
+      "mesh_144": {
+        "checks": {
+          "total_downward": 1090.9125531372456,
+          "coil_load_per_frame": 1000.0,
+          "reaction_sum": 1090.9125515710066,
+          "vertical_residual": -1.5662390069337562e-06,
+          "moment_residual": -4.2269133700756356e-05,
+          "free_residual": 8.02370775376815e-09,
+          "stabilizer_max_force": 7.55451272211145e-09,
+          "max_contact_penetration": 0,
+          "max_recovery_mismatch": 1.734723475976807e-18,
+          "beam_equilibrium": [
+            {
+              "beam": "B1",
+              "force_residual": -7.708767952863127e-07,
+              "moment_residual": -2.0794985630345764e-05
+            },
+            {
+              "beam": "B2",
+              "force_residual": -7.723232897660637e-07,
+              "moment_residual": -2.085209507640684e-05
+            }
+          ],
+          "dofs": 616,
+          "elements": 304,
+          "iterations": 6200,
+          "mesh_divisions": 144,
+          "free_force_residual": 8.02370775376815e-09,
+          "free_moment_residual": 7.67312985719415e-10
+        },
+        "solver": [
+          {
+            "iteration": 6200,
+            "residual": 8.02370775376815e-09,
+            "active": 11,
+            "energy": -3.111796859011516,
+            "status": "Verified working-set solution",
+            "primal_residual": 2.992397996059992e-16,
+            "dual_residual": 7.103881670488604e-11,
+            "polished": 1
+          }
+        ],
+        "beams": {
+          "B1": {
+            "peak_stress_psi": 2431.4828507227558,
+            "peak_moment_lbf_in": 7556.323841432193,
+            "peak_movement_in": 0.007554512722111451
+          },
+          "B2": {
+            "peak_stress_psi": 1806.9111424614323,
+            "peak_moment_lbf_in": 337.44438525418667,
+            "peak_movement_in": 0.007541454629437515
+          }
+        },
+        "lifting_reactions_lbf": [
+          545.4562757851245,
+          545.4562757858821
+        ],
+        "maximum_rod_tension_lbf": 52.453253522364946
+      },
+      "refinement": [
+        {
+          "beam": "B1",
+          "quantity": "peak_stress",
+          "coarse": 2431.483588501176,
+          "refined": 2431.4828507227558,
+          "change_percent": -3.0342735924472703e-05
+        },
+        {
+          "beam": "B1",
+          "quantity": "peak_deflection",
+          "coarse": 0.007554525591495611,
+          "refined": 0.007554512722111451,
+          "change_percent": -0.00017035359702600422
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_stress",
+          "coarse": 1803.967325505689,
+          "refined": 1806.9111424614323,
+          "change_percent": 0.16291985181591304
+        },
+        {
+          "beam": "B2",
+          "quantity": "peak_deflection",
+          "coarse": 0.007541467184277934,
+          "refined": 0.007541454629437515,
+          "change_percent": -0.0001664777027235183
+        },
+        {
+          "beam": "T1",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        },
+        {
+          "beam": "T2",
+          "quantity": "rod_tension",
+          "coarse": 52.45349164614762,
+          "refined": 52.45325352224821,
+          "change_percent": -0.0004539735543889226
+        },
+        {
+          "beam": "T3",
+          "quantity": "rod_tension",
+          "coarse": 22.516960663660655,
+          "refined": 22.51641828748105,
+          "change_percent": -0.002408803090620808
+        },
+        {
+          "beam": "T4",
+          "quantity": "rod_tension",
+          "coarse": 52.4534916462089,
+          "refined": 52.453253522364946,
+          "change_percent": -0.0004539734486732971
+        },
+        {
+          "beam": "T5",
+          "quantity": "rod_tension",
+          "coarse": 0.0,
+          "refined": 0.0,
+          "change_percent": 0.0
+        }
+      ]
+    }
+  ],
+  "scope": "Implementation checks of nominal elastic planar beam response. These do not qualify a shipping design.",
+  "analytical_references": [
+    {
+      "name": "central_point_load",
+      "closed_form_deflection_in": 0.04015448275862069,
+      "computed_deflection_in": 0.04015448275234559,
+      "relative_error": 1.5627409455111122e-10,
+      "reactions_lbf": [
+        499.9999999010888,
+        499.999999901087
+      ]
+    },
+    {
+      "name": "uniform_load",
+      "closed_form_deflection_in": 0.025042758620689654,
+      "computed_deflection_in": 0.02504275861669579,
+      "relative_error": 1.594818018084731e-10,
+      "reactions_lbf": [
+        499.9999999367101,
+        499.99999993670644
+      ]
+    }
+  ],
+  "developer_tools": {
+    "node": "24.22.1",
+    "jsdom": "31.0.0",
+    "katex": "0.19.1"
+  }
+}

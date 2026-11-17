@@ -1,0 +1,2 @@
+KaTeX parsing: 98 / 98 four-layer worksheet formulas passed.
+Math delimiters added by Streamlit were stripped before standalone KaTeX parsing.

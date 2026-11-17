@@ -1,0 +1,1 @@
+Sketcher DOM checks passed: numeric and mouse geometry, holes, outlines, arcs, fillets, snap/ortho, move, pan/zoom, transforms, undo/redo and emitted model.

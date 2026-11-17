@@ -1,0 +1,7 @@
+{
+  "name": "frame-editor-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node test_editor.mjs"},
+  "devDependencies": {"jsdom": "^31.0.0"}
+}

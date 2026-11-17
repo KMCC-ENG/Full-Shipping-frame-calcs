@@ -1,0 +1,112 @@
+[data-testid="stMainBlockContainer"]:has(.st-key-suite_homepage) {
+    max-width: 94rem;
+    padding: clamp(3.2rem, 8vh, 6rem) clamp(1.2rem, 4.5vw, 4.5rem) 2.5rem;
+}
+
+.st-key-suite_homepage h1 {
+    color: #10243a;
+    font-family: Inter, "Segoe UI", sans-serif;
+    font-size: clamp(2.35rem, 4.25vw, 4rem);
+    font-weight: 720;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+    padding: 0 0 clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.st-key-suite_homepage button {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: clamp(13.5rem, 21vw, 20.5rem);
+    padding: clamp(1.1rem, 1.9vw, 1.9rem) clamp(2.7rem, 3.3vw, 3.6rem) 0
+             clamp(1.1rem, 1.9vw, 1.9rem);
+    overflow: hidden;
+    border: 1.5px solid #6795c0;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #eff8ff, #e2f1fc);
+    color: #122d48;
+    text-align: left;
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.st-key-suite_homepage button p {
+    display: block;
+    margin: 0;
+    max-width: 7.8em;
+    color: inherit;
+    font-family: Inter, "Segoe UI", sans-serif;
+    font-size: clamp(1.3rem, 2.45vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    text-align: left;
+    white-space: normal;
+}
+
+.st-key-suite_homepage button > div,
+.st-key-suite_homepage button [data-testid="stMarkdownContainer"] {
+    width: 100%;
+}
+
+.st-key-suite_homepage button::before {
+    content: "";
+    position: absolute;
+    inset: 43% 6% 8%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    pointer-events: none;
+}
+
+.st-key-suite_homepage button::after {
+    content: "";
+    position: absolute;
+    top: clamp(1.6rem, 2.65vw, 2.8rem);
+    right: 6%;
+    width: 0.74rem;
+    height: 0.74rem;
+    border-top: 3px solid #245d95;
+    border-right: 3px solid #245d95;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+.st-key-suite_homepage button:hover,
+.st-key-suite_homepage button:focus-visible {
+    border-color: #195998;
+    box-shadow: 0 3px 12px #123c6424;
+    color: #10243a;
+}
+
+.st-key-suite_homepage button:focus-visible {
+    outline: 3px solid #2463aa;
+    outline-offset: 3px;
+}
+
+@media (max-width: 740px) {
+    .st-key-suite_homepage [data-testid="stHorizontalBlock"] {
+        flex-direction: column;
+    }
+    .st-key-suite_homepage [data-testid="stColumn"] {
+        width: 100%;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+    .st-key-suite_homepage button {
+        align-items: center;
+        min-height: 7.3rem;
+        padding: 1rem 46% 1rem 1.1rem;
+    }
+    .st-key-suite_homepage button::before {
+        inset: 17% 10% 17% 59%;
+    }
+    .st-key-suite_homepage button::after {
+        top: calc(50% - 0.28rem);
+        right: 4%;
+        width: 0.48rem;
+        height: 0.48rem;
+        border-width: 2px;
+    }
+}

@@ -1,0 +1,239 @@
+{
+  "schema": "frame-load-analyzer/1",
+  "title": "Partial-length angle welded to HSS",
+  "units": "in-lbf-psi",
+  "beams": [
+    {
+      "id": "B1",
+      "name": "Beam 1",
+      "x": 0.0,
+      "y": 0.0,
+      "length": 54.0,
+      "section_type": "Angle + HSS",
+      "auto_cut": true,
+      "components": [
+        {
+          "shape": "HSS",
+          "h": 3.0,
+          "w": 3.0,
+          "t": 0.25,
+          "dy": 0.0,
+          "dz": 0.0,
+          "start": 0.0,
+          "length": 54.0
+        },
+        {
+          "shape": "Angle",
+          "h": 3.0,
+          "w": 3.0,
+          "t": 0.375,
+          "dy": 3.0,
+          "dz": 0.0,
+          "start": 5.0,
+          "length": 44.0
+        }
+      ],
+      "manual": {
+        "A": 2.0,
+        "I": 1.5,
+        "ctop": 2.0,
+        "cbottom": 1.0,
+        "width": 3.0,
+        "As": 1.0
+      }
+    },
+    {
+      "id": "B2",
+      "name": "Beam 2",
+      "x": 5.0,
+      "y": 7.0,
+      "length": 44.0,
+      "section_type": "Angle",
+      "auto_cut": true,
+      "components": [
+        {
+          "shape": "Angle",
+          "h": 2.0,
+          "w": 3.0,
+          "t": 0.375,
+          "dy": 0.0,
+          "dz": 0.0,
+          "start": 0.0,
+          "flip_y": true
+        }
+      ],
+      "manual": {
+        "A": 2.0,
+        "I": 1.5,
+        "ctop": 2.0,
+        "cbottom": 1.0,
+        "width": 3.0,
+        "As": 1.0
+      }
+    }
+  ],
+  "coils": [
+    {
+      "id": "C1",
+      "name": "Coil 1",
+      "x": 11.0,
+      "y": 6.0,
+      "r": 1.75,
+      "share": 1.0,
+      "lower": "Auto",
+      "upper": "Auto"
+    },
+    {
+      "id": "C2",
+      "name": "Coil 2",
+      "x": 21.0,
+      "y": 6.0,
+      "r": 1.75,
+      "share": 1.0,
+      "lower": "Auto",
+      "upper": "Auto"
+    },
+    {
+      "id": "C3",
+      "name": "Coil 3",
+      "x": 33.0,
+      "y": 6.0,
+      "r": 1.75,
+      "share": 1.0,
+      "lower": "Auto",
+      "upper": "Auto"
+    },
+    {
+      "id": "C4",
+      "name": "Coil 4",
+      "x": 43.0,
+      "y": 6.0,
+      "r": 1.75,
+      "share": 1.0,
+      "lower": "Auto",
+      "upper": "Auto"
+    }
+  ],
+  "rods": [
+    {
+      "id": "T1",
+      "name": "Rod 1",
+      "x": 5.5,
+      "diameter": 0.75,
+      "tpi": 10.0,
+      "weld": "B1",
+      "nut": "B2",
+      "free_length": 5.0,
+      "auto_length": true,
+      "weld_y": null,
+      "nut_y": null
+    },
+    {
+      "id": "T2",
+      "name": "Rod 2",
+      "x": 16.0,
+      "diameter": 0.75,
+      "tpi": 10.0,
+      "weld": "B1",
+      "nut": "B2",
+      "free_length": 5.0,
+      "auto_length": true,
+      "weld_y": null,
+      "nut_y": null
+    },
+    {
+      "id": "T3",
+      "name": "Rod 3",
+      "x": 27.0,
+      "diameter": 0.75,
+      "tpi": 10.0,
+      "weld": "B1",
+      "nut": "B2",
+      "free_length": 5.0,
+      "auto_length": true,
+      "weld_y": null,
+      "nut_y": null
+    },
+    {
+      "id": "T4",
+      "name": "Rod 4",
+      "x": 38.0,
+      "diameter": 0.75,
+      "tpi": 10.0,
+      "weld": "B1",
+      "nut": "B2",
+      "free_length": 5.0,
+      "auto_length": true,
+      "weld_y": null,
+      "nut_y": null
+    },
+    {
+      "id": "T5",
+      "name": "Rod 5",
+      "x": 48.5,
+      "diameter": 0.75,
+      "tpi": 10.0,
+      "weld": "B1",
+      "nut": "B2",
+      "free_length": 5.0,
+      "auto_length": true,
+      "weld_y": null,
+      "nut_y": null
+    }
+  ],
+  "pins": [
+    {
+      "id": "R1",
+      "name": "Lift 1",
+      "beam": "B1",
+      "x": 1.5,
+      "diameter": 0.75,
+      "y": null
+    },
+    {
+      "id": "R2",
+      "name": "Lift 2",
+      "beam": "B1",
+      "x": 52.5,
+      "diameter": 0.75,
+      "y": null
+    }
+  ],
+  "blocks": [],
+  "loads": [],
+  "materials": {
+    "frame": {
+      "name": "CSA G40.21 44W",
+      "E": 29000000.0,
+      "nu": 0.3,
+      "density": 0.2836,
+      "Fy": 44000.0,
+      "Fu": 64000.0
+    },
+    "rod": {
+      "name": "ASTM A193 B7",
+      "E": 29000000.0,
+      "nu": 0.3,
+      "density": 0.2836,
+      "Fy": 105000.0,
+      "Fu": 125000.0
+    }
+  },
+  "loading": {
+    "coil_weight": 2000.0,
+    "frames": 2,
+    "equal_frames": true,
+    "frame_share": 0.5,
+    "self_weight": true,
+    "factor": 1.0,
+    "equal_reactions": false,
+    "allowable_beam": 0.0,
+    "allowable_rod": 0.0
+  },
+  "analysis": {
+    "elements": 72,
+    "timoshenko": true,
+    "curve_resolution": 128,
+    "regularization": 1e-06
+  }
+}
