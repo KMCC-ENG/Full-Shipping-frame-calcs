@@ -15,17 +15,13 @@ def started(model=None):
  a=AppTest.from_file(str(APP),default_timeout=90)
  if model is not None:a.session_state.sf_model=copy.deepcopy(model)
  a.run();assert not a.exception
- a.button(key='sf_disclaimer_ok').click().run()
- assert not a.exception
  return a
 
 
-def test_startup_acknowledgement_gates_empty_app():
+def test_frame_opens_directly_with_empty_model():
  a=AppTest.from_file(str(APP),default_timeout=90).run()
- assert [b.label for b in a.button]==['OK']
- assert 'The user should independently verify the model and results before they are used for fabrication.' in '\n'.join(x.value for x in a.markdown)
- a.button(key='sf_disclaimer_ok').click().run()
- assert a.session_state.sf_disclaimer_accepted
+ assert a.title[0].value=='Shipping Frame Load Analyzer'
+ assert not any(b.label=='OK' for b in a.button)
  assert a.session_state.sf_model['beams']==[]
  assert all(not a.session_state.sf_model[k] for k in ['coils','rods','pins','blocks'])
  assert not a.metric and not a.exception
@@ -91,7 +87,6 @@ def test_import_callback_replaces_stale_widgets_transactionally(monkeypatch):
  assert a.session_state.sf_model['beams']==imported
  assert a.session_state.sf_model['beams'][0]['y']==-2.
  assert a.number_input(key='sf_beam_B1_Angle_0_t').value==.5
- assert a.session_state.sf_disclaimer_accepted
 
 
 def test_new_tabs_and_moved_controls():

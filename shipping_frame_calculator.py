@@ -15,24 +15,6 @@ from frame_calculations import render_calculations
 ROOT=Path(__file__).resolve().parent
 _EDITOR=None
 RESULT_TABS=['Bending moment','Shear force','Deflection','Stress','Forces','Calculations']
-DISCLAIMER='''This app provides engineering estimates using simplified structural models. Results depend on the accuracy of the inputs and selected assumptions. Software errors and modeling limitations may produce inaccurate results.
-
-The user should independently verify the model and results before they are used for fabrication.
-
-By clicking **OK**, you acknowledge these limitations and the need to verify the results for the intended use.'''
-
-def acknowledge_disclaimer():
- import streamlit as st
- if st.session_state.get('sf_disclaimer_accepted'):return True
- @st.dialog('Engineering calculation disclaimer',dismissible=False)
- def notice():
-  st.markdown(DISCLAIMER)
-  if st.button('OK',key='sf_disclaimer_ok',type='primary',width='stretch'):
-   st.session_state.sf_disclaimer_accepted=True
-   st.rerun()
- notice()
- return False
-
 def result_tabs():
  import streamlit as st
  # Stateful tabs expose .open in recent Streamlit versions, so expensive
@@ -92,7 +74,7 @@ def replace_model(m):
  import streamlit as st
  epoch=st.session_state.get('sf_epoch',0)+1
  for k in list(st.session_state):
-  if k.startswith('sf_') and k not in {'sf_disclaimer_accepted','sf_model_upload'}:del st.session_state[k]
+  if k.startswith('sf_') and k!='sf_model_upload':del st.session_state[k]
  st.session_state.sf_model=copy.deepcopy(m);st.session_state.sf_epoch=epoch
  st.session_state.sf_editor_open=False
 
@@ -561,7 +543,6 @@ def render_forces(s):
 def render_app():
  import streamlit as st
  initialize_state()
- if not acknowledge_disclaimer():st.stop()
  st.markdown('''<style>.block-container{max-width:1580px;padding-top:1.3rem;padding-bottom:2rem}[data-testid="stSidebar"]{min-width:380px;max-width:405px}[data-testid="stSidebar"] .block-container{padding-top:1rem}[data-testid="stSidebar"] h3{font-size:1.05rem}[data-testid="stMetricValue"]{font-size:1.45rem}div[data-testid="stTabs"] button{font-size:.88rem}@media(max-width:750px){[data-testid="stSidebar"]{min-width:0;max-width:92vw}}</style>''',unsafe_allow_html=True)
  m,bid,calculate=render_sidebar()
  st.title('Shipping Frame Load Analyzer')

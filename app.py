@@ -13,6 +13,19 @@ CALCULATORS = {
     "tube_load": ("Tube Load Analyzer", "beam_stress_calculator"),
     "shipping_frame": ("Shipping Frame Load Analyzer", "shipping_frame_calculator"),
 }
+DISCLAIMER = """This app provides engineering estimates using simplified structural models. Results depend on the accuracy of the inputs and selected assumptions. Software errors and modeling limitations may produce inaccurate results.
+
+The user should independently verify the model and results before they are used for fabrication.
+
+By clicking **OK**, you acknowledge these limitations and the need to verify the results for the intended use."""
+
+
+@st.dialog("Engineering calculation disclaimer", dismissible=False)
+def show_disclaimer():
+    st.markdown(DISCLAIMER)
+    if st.button("OK", key="suite_disclaimer_ok", type="primary", width="stretch"):
+        st.session_state.suite_disclaimer_accepted = True
+        st.rerun()
 
 
 def navigate(destination):
@@ -34,17 +47,24 @@ def homepage():
     with st.container(key="suite_homepage"):
         st.title("Engineering Calculators")
         for column, (name, (title, _module)) in zip(st.columns(3, gap="small"), CALCULATORS.items()):
-            column.button(title, key=f"open_{name}", on_click=navigate, args=(name,), width="stretch", wrap=True)
+            column.button(
+                title, key=f"open_{name}", on_click=navigate, args=(name,),
+                width="stretch", wrap=True,
+                disabled=not st.session_state.get("suite_disclaimer_accepted", False),
+            )
 
 
 def main():
     view = st.session_state.get("suite_view", "home")
-    calculator = CALCULATORS.get(view)
+    accepted = st.session_state.get("suite_disclaimer_accepted", False)
+    calculator = CALCULATORS.get(view) if accepted else None
     title = calculator[0] if calculator else "Engineering Calculators"
     st.set_page_config(page_title=title, layout="wide", initial_sidebar_state="auto")
 
     if calculator is None:
         homepage()
+        if not accepted:
+            show_disclaimer()
         return
 
     st.html(ASSETS / "navigation.css")

@@ -11,6 +11,9 @@ NAMES = ["Coil Center of Gravity", "Tube Load Analyzer", "Shipping Frame Load An
 
 def start():
     app = AppTest.from_file(str(APP), default_timeout=90).run()
+    assert app.title[0].value == "Engineering Calculators"
+    assert all(app.button(key=f"open_{name}").disabled for name in ("coil_cg", "tube_load", "shipping_frame"))
+    app.button(key="suite_disclaimer_ok").click().run()
     assert [button.label for button in app.button] == NAMES
     assert not app.exception
     return app
@@ -23,6 +26,27 @@ def click(app, key):
 
 def metrics(app):
     return [(m.label, m.value) for m in app.metric]
+
+
+def test_disclaimer_is_once_per_session_across_all_calculators_and_resets():
+    app = start()
+    for name in ("coil_cg", "tube_load", "shipping_frame"):
+        click(app, f"open_{name}")
+        assert not any(button.label == "OK" for button in app.button)
+        click(app, "suite_home")
+        app.run()
+        assert [button.label for button in app.button] == NAMES
+        assert app.session_state.suite_disclaimer_accepted
+    click(app, "open_shipping_frame")
+    click(app, "sf_load_example")
+    for reset in ("sf_reset_design", "sf_reset_loading", "sf_reset_material", "sf_reset_analysis"):
+        click(app, reset)
+        assert app.session_state.suite_disclaimer_accepted
+    click(app, "suite_home")
+    assert [button.label for button in app.button] == NAMES
+    new_session = AppTest.from_file(str(APP), default_timeout=90).run()
+    assert new_session.button(key="suite_disclaimer_ok").label == "OK"
+    assert new_session.button(key="open_shipping_frame").disabled
 
 
 def test_partly_entered_tube_survives_immediate_home_and_changes_to_coil():
@@ -64,7 +88,6 @@ def test_partly_entered_tube_survives_immediate_home_and_changes_to_coil():
 def test_calculated_frame_and_tube_keep_their_results_after_using_all_three():
     app = start()
     click(app, "open_shipping_frame")
-    click(app, "sf_disclaimer_ok")
     click(app, "sf_load_example")
     app.number_input(key="sf_mesh").set_value(16).run()
     click(app, "sf_calculate")
@@ -103,7 +126,6 @@ def test_calculated_frame_and_tube_keep_their_results_after_using_all_three():
 def test_frame_draft_and_displayed_units_survive_home_and_deleted_ids_stay_deleted():
     app = start()
     click(app, "open_shipping_frame")
-    click(app, "sf_disclaimer_ok")
     click(app, "sf_add_beam")
     click(app, "sf_add_beam")
     click(app, "sf_add_rod")
